@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="post h-entry">
+
+  <header class="post-header">
+    <h1 class="post-title p-name">{{ page.title }}</h1>
+    <p class="post-meta">
+      <span class="dt-published">{{ page.date | date: "%b %-d, %Y" }}</span>
+      {% if page.meta %} &middot; {{ page.meta }}{% endif %}
+      <span style="visibility:hidden;">
+      &middot;
+      <span class="p-author">Sun</span>
+      &middot;
+      <a class="u-url u-uid" href="{{ site.baseurl }}{{ page.url }}">Permalink</a>
+      </span>
+    </p>
+  </header>
+
+  <article class="post-content e-content">
+    {{ content }}
+  </article>
+
+  <hr />
+  <p>
+    {% if page.previous %}
+    <a href="{{ page.previous.url }}">Previous: {{ page.previous.title }}</a> 
+    {% endif %}
+    &nbsp; • &nbsp;
+    {% if page.next %}
+    <a href="{{ page.next.url }}">Next: {{ page.next.title }}</a>
+    {% endif %}
+    <br />
+    <span class="comment"></span>
+  </p>
+</div>

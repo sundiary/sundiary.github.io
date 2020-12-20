@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {% include head.html %}
+    <link rel="stylesheet" href="{{ "/css/bootstrap-cust.css" | prepend: site.baseurl }}">
+  </head>
+
+  <body>
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+          <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+          </header>
+
+          <article class="post-content">
+
+            <div id="encryptedText" class="card mb-3">
+              <div class="card-body">
+              <pre>
+{{ content | strip_html | strip }}
+              </pre>
+              <div id="errorMsg" class="alert alert-danger d-none" role="alert">
+                Error. Failed to decrypt.
+              </div>
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#decryptModal">
+                Decrypt
+              </button>
+              </div>
+            </div>
+
+            <div id="plainText" class="card mb-3 d-none">
+              <div class="card-body text-dark">
+              <p class="card-text"></p>
+              </div>
+            </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="decryptModal" tabindex="-1" role="dialog" aria-labelledby="decryptModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="padding:0em 0.5em;">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="decryptModalLabel">Enter password to decrypt</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="pwInput">Password</label>
+                      <input type="password" class="form-control" id="pwInput" style="padding-right:0px">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="submitDecrypt">Decrypt</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </article>
+          <hr />
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ "/js/openpgp.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/decrypt.js" | prepend: site.baseurl }}"></script>
+  </body>
+</html>

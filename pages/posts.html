@@ -1,0 +1,26 @@
+---
+layout: default
+title: Posts
+---
+<div class="home">
+  <h1 class="page-heading">Diary</h1>
+  <p>Secret Diary.</p>
+  <ul class="post-list">
+    {% for post in site.categories.blog %}
+      <li>
+        <div class="post-overview post-indent">
+        <h3>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">- 
+          {% for cat in post.tags %}
+            [{{ cat }}]
+          {% endfor %}
+        </span>
+
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

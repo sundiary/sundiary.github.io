@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div class="home" style="text-align:center;">
+  <!-- h-card. see indieweb! -->
+  <div class="h-card" style="font-size:1.15em;">
+  <!--<img src="{{ '/assets/img/profile-1.jpg' | prepend: site.baseurl }}" align="center" width="225" style="margin:1em;margin-top:0em;" class="u-photo" alt="Photo of me." /> -->
+  <br />
+  <a class="p-name u-url" href="http://sundiary.github.io/">Sun</a>
+  &middot;
+  <span class="p-adr h-adr">
+    <span class="p-locality">Sun</span>
+    &middot;
+    <span class="p-country-name">HK</span>
+  </span>
+  </div>
+
+
+  <div style="margin:0.8em 0em;">
+    <hr />
+    <p style="margin:0.5em 0em;"> :) </p>
+    <hr />
+  </div>
+
+  <h1 class="page-heading" align="left">Latest Project &amp; Blog Posts</h1>
+  <ul class="post-list" align="left">
+    {% for post in site.posts limit:7%}
+      {% assign skip = false %}
+      {% for cat in post.categories %}
+        {% if cat == "secret" %}
+          {% assign skip = true %}
+        {% endif %}
+      {% endfor %}
+      {% if skip %}
+        {% continue %}
+      {% endif %}
+      <li>
+        <div class="post-overview post-indent">
+        <div class="left-box">
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">- 
+          {% for cat in post.categories %}
+            [{{ cat }}]
+          {% endfor %}
+        </span>
+        </div>
+        <div class="right-box">
+        {% if post.tagline %}
+        <p class="tagline">
+          {{ post.tagline }}
+        </p>
+        {% endif %}
+        </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
