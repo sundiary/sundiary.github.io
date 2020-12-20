@@ -1,7 +1,7 @@
 ---
 layout: encrypted
-title: "Test Post"
-date: 2019-02-14
+title: "Day 0"
+date: 2020-12-20
 categories: secret
 ---
 ```

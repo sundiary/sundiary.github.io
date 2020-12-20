@@ -10,7 +10,7 @@ google_analytics: no
 
 # Build settings
 markdown: kramdown
-collections:
-  projects:
-    collections_dir: projects
-    output: true
+#collections:
+#  projects:
+#    collections_dir: projects
+#    output: true
