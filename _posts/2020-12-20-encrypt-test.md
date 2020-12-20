@@ -6,11 +6,10 @@ categories: secret
 ---
 ```
 -----BEGIN PGP MESSAGE-----
-Version: GnuPG v1
 
-jA0EBwMCPGpXuDiLLVhg0kEBrhOpWgup+Vxf2Oxq0X4UORRbpgIMEKSlklLiSovO
-K6kz0nXrAJe1HbOBjAIXRb2xcJT5QSlPCJyaFIq70nVubQ==
-=8k8s
+jA0ECQMCACdLnlrcxr3j0ksB1Er+QP8/xtuMkj/kjAjFCDvFkyrWgNArLqZuDVuv
+/MbjMgTrW8uyteRLHsRf/ansLE3dv2ayApBnU67HRRSZeR84i1TIvBiuEz0=
+=Q2Vj
 -----END PGP MESSAGE-----
 ```
 
